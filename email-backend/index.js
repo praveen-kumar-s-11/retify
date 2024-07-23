@@ -68,7 +68,7 @@ app.post('/send-email', (req, res) => {
             return res.status(500).send(`Error sending email to seller: ${error.toString()}`);
         }
         console.log('Email sent to seller:', info.response);
-        
+    });
         transporter.sendMail(mailOptionsToBuyer, (error, info) => {
             if (error) {
                 console.error('Error sending email to buyer:', error);
@@ -77,7 +77,7 @@ app.post('/send-email', (req, res) => {
             console.log('Email sent to buyer:', info.response);
             res.status(200).send('Emails sent successfully');
         });
-    });
+    
 });
 
 app.listen(port, () => {
